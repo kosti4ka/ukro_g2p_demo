@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Транскрипція</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 align="center">Транскрипція</h1>
+
+    <form action="/" method="POST" align="center">
+        <input type="text" name="graphemes", id="graphemes">
+        <input type="submit" value="Генерувати">
+    </form>
+
+    {% if g2p_result is not none %}
+
+    <table align="center">
+        <tr>
+            <td><b>{{ graphemes }}</b> [{{ phonemes|safe }}]</td>
+        </tr>
+    </table>
+
+    {% endif %}
+
+</div>
+{% endblock %}
