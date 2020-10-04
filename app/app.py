@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect
 from ukro_g2p.predict import G2P
+import os
 
 app = Flask(__name__)
+port = int(os.environ.get("PORT", 5000))
 
 # init g2p model
 g2p = G2P('ukro-base-uncased')
@@ -28,4 +30,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=port)
