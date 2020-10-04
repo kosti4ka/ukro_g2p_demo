@@ -16,7 +16,6 @@ def index():
             try:
                 phonemes = g2p(graphemes, human_readable=True)
                 phonemes = f"{' '.join(phonemes)}"
-                print(phonemes)
 
                 return render_template('index.html', graphemes=graphemes, phonemes=phonemes)
             except:
@@ -29,4 +28,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, host='0.0.0.0')
